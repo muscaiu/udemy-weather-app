@@ -6,9 +6,12 @@ var getWeather = (lat, lng, callback) => {
         json: true //convert data to json
     }, (error, response, body) => {
         if (!error && response.statusCode === 200) {
-            callback(body.currently.temperature)
+            callback(undefined, {
+                temperature: body.currently.temperature,
+                apparentTemperature: body.currently.apparentTemperature
+            })
         } else {
-            callback(undefined, 'unable to fetch weather')
+            callback('unable to fetch weather')
         }
     })
 }

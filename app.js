@@ -21,16 +21,14 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     if (errorMessage) {
         console.log(errorMessage)
     } else {
-        console.log(results)
-        geocode.getTemperature()
-    }
-})
-
-//lat, lng, callback
-weather.getWeather(44.4349932, 26.0275679, (errorMessage, results) => {
-    if (errorMessage) {
-        console.log(errorMessage)
-    } else {
-        console.log(results)
+        //lat, lng, callback
+        weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => {
+            if (errorMessage) {
+                console.log(errorMessage)
+            } else {
+                console.log(`Weather in: ${results.address}:`)
+                console.log(`It's currently ${weatherResults.temperature}, IT feels like ${weatherResults.apparentTemperature}.`)
+            }
+        })
     }
 })
