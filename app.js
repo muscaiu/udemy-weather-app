@@ -26,8 +26,9 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
             if (errorMessage) {
                 console.log(errorMessage)
             } else {
-                console.log(`Weather in: ${results.address}:`)
-                console.log(`It's currently ${weatherResults.temperature}, IT feels like ${weatherResults.apparentTemperature}.`)
+                //(°F − 32) * 5/9 = °C 
+                var tempToCelsius = Math.round(weatherResults.temperature - 32) * 5 / 9
+                console.log(`It's currently ${tempToCelsius}° in ${results.address}.`)
             }
         })
     }
