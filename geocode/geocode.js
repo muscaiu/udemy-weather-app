@@ -25,6 +25,10 @@ var geocodeAddress = (address, callback) => {
         }
     })
 }
+
 module.exports = {
     geocodeAddress
 }
+
+//API KEY: 84533391aa6c37073fae49e648229a7c
+//URL: https://api.darksky.net/forecast/84533391aa6c37073fae49e648229a7c/37.8267,-122.4233
